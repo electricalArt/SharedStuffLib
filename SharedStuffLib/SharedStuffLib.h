@@ -11,10 +11,18 @@ int GetWString(wchar_t* wszDestination, const char* szcStr);
 /*F+F+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: ConfigureLoggers()
 
-  Summary:  Configures each loggers with default settings.
+  Summary:  Configures each loggers. Output log file is set to
+	$env:temp/<ProductName>.log. The log format is set to preferred.
 
-  Args:     szcLogFileName
+  Args:     const wchar_t* wszcProductName
+			bool bIsDebug
 
   Returns:  void
 -----------------------------------------------------------------F-F*/
-void ConfigureLoggers(const wchar_t* szcProductName, bool bIsDebug);
+void ConfigureLoggers(const wchar_t* wszcProductName, bool bIsDebug);
+
+void RunShellCommand(const wchar_t* wszcCommand, wchar_t* wszOutput);
+
+void PrintCover(const wchar_t* wszcProductName);
+
+void ReplaceCharacter(wchar_t* wszString, wchar_t cOld, wchar_t cNew);
